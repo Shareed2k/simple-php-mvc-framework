@@ -7,10 +7,13 @@
       <div class="row marketing">
         <div class="col-lg-6">
         <?php
+
             if(isset($posts)){
+
+
                 foreach($posts as $post){
 
-                    echo "<h4>{$post['title']}</h4>";
+                    echo "<h4><a href=\"./post/id/{$post['id']}\">{$post['title']}</a></h4>";
                     echo "<p>{$post['text']}</p>";
                 }
             }else{
@@ -18,7 +21,7 @@
             }
         ?>
         </div>
-
+<!--
         <div class="col-lg-6">
           <h4>Subheading</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -28,5 +31,5 @@
 
           <h4>Subheading</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+        </div>-->
       </div>

@@ -68,9 +68,11 @@ class DataBase {
             }
 
             try{
-                $statment = $this->_db_obj->prepare($sql, $this->_db_driver_opt);
+                $statment = $this->_db_obj->prepare($sql);//$this->_db_driver_opt
 
                 $params = Helper::makeArray($params);
+
+                //var_dump($params);
 
                 if(!$statment->execute($params) || $statment->errorCode() != '0000'){
                     $error = $statment->errorInfo();
@@ -108,6 +110,7 @@ class DataBase {
     public function getAll($sql = null, $params = null){
         if(!empty($sql)){
             $statment = $this->query($sql, $params);
+            $this->_affected_rows = $statment->rowCount();
             return $statment->fetchAll(\PDO::FETCH_ASSOC);
         }
     }
@@ -115,6 +118,7 @@ class DataBase {
     public function getOne($sql = null, $params = null){
         if(!empty($sql)){
             $statment = $this->query($sql, $params);
+            $this->_affected_rows = $statment->rowCount();
             return $statment->fetch(\PDO::FETCH_ASSOC);
         }
     }
@@ -131,11 +135,15 @@ class DataBase {
     public function insert($sql = null, $params = null){
         if(!empty($sql)){
             if($this->execute($sql, $params)){
-                $this->_id = $this->getLastInsertedId();
+                //$this->_id = $this->getLastInsertedId();
                 return true;
             }
             return false;
         }
         return false;
+    }
+
+    public function getRowCount(){
+        return $this->_affected_rows;
     }
 } 

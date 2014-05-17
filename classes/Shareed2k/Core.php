@@ -13,9 +13,9 @@ class Core {
 
     public static function run(Router $router){
         $route = $router->matchRequest();
-
+        //var_dump($route);
         if($route) {
-            //var_dump($route);
+
             $controller = '\Controllers\\'.$route->getController();
             $method = $route->getAction();
             if(class_exists($controller)){
@@ -28,9 +28,9 @@ class Core {
         }else{
             $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
             header('HTTP/1.1 404 Not Found');
-            header("Status: 404 Not Found");
+            header('Status: 404 Not Found');
             header('Location:'.$host.'404');
             exit;
         }
     }
-} 
+}

@@ -22,4 +22,9 @@ class indexModel extends BaseModel{
         $sql = "SELECT * FROM posts";
         return $this->_db->getAll($sql);
     }
+
+    public function login($user, $pass){
+        $sql = "SELECT name, perm FROM users WHERE name = ? and pass = ?";
+        return $this->_db->getOne($sql, array($user, $pass));
+    }
 } 

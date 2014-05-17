@@ -5,7 +5,7 @@
  * Date: 4/27/14
  * Time: 4:54 PM
  */
-
+//phpinfo();
 require_once __DIR__ . '/inc/autoload.php';
 require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/routes.php';
@@ -13,7 +13,9 @@ require_once __DIR__ . '/inc/routes.php';
 use Symfony\Component\ClassLoader\UniversalClassLoader;
 
 $loader = new UniversalClassLoader();
+
 $loader->registerNamespace('Shareed2k', __DIR__.DS.'classes');
+$loader->registerNamespace('Facebook', __DIR__.DS.'classes');
 $loader->registerNamespace('Controllers', __DIR__.DS.'controller');
 $loader->registerNamespace('View', __DIR__.DS.'view');
 $loader->registerNamespace('Model', __DIR__.DS.'model');

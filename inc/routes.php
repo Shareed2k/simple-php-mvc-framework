@@ -7,11 +7,11 @@
  */
 
 $routes['routes'] = array(
-    'contact' => array(
-        'url' => '/contact',
-        'controller' => 'someController',
-        'action' => 'contactAction',
-        'methods' => 'GET'
+    'comment' => array(
+        'url' => '/post/addcomment',
+        'controller' => 'PostController',
+        'action' => 'addComment',
+        'methods' => 'POST'
     ),
 
     'index' => array(
@@ -21,10 +21,31 @@ $routes['routes'] = array(
         'methods' => 'GET'
     ),
 
-    '404' => array(
-        'url' => '/error/:id/:ds',
+    'login' => array(
+        'url' => '/login',
         'controller' => 'someController',
-        'action' => 'errorAction',
+        'action' => 'loginAction',
         'methods' => 'GET'
-    )
+    ),
+
+    'dologin' => array(
+    'url' => '/user/login',
+    'controller' => 'someController',
+    'action' => 'dologinAction',
+    'methods' => 'POST'
+    ),
+
+    'post' => array(
+        'url' => '/post/id/:id',
+        'controller' => 'PostController',
+        'action' => 'indexAction',
+        'methods' => 'GET'
+    ),
+
+    'upload' => array(
+    'url' => '/upload',
+    'controller' => 'PostController',
+    'action' => 'uploadAction',
+    'methods' => 'POST'
+    ),
 );
