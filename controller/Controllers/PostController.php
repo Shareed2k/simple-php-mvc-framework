@@ -31,6 +31,17 @@ class PostController extends BaseController {
 
     }
 
+    public function dataAction(){
+        header('Content-Type: application/json');
+        if(isset($_POST)){
+            echo json_encode($_POST);
+        }
+    }
+
+    public function valAction(){
+        $this->view->render('valView');
+    }
+
     public function uploadAction(){
         header('Content-Type: application/json');
 

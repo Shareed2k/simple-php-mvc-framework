@@ -28,11 +28,25 @@ $routes['routes'] = array(
         'methods' => 'GET'
     ),
 
+    'doPost' => array(
+        'url' => '/dataUpload',
+        'controller' => 'PostController',
+        'action' => 'dataAction',
+        'methods' => 'POST'
+    ),
+
     'dologin' => array(
     'url' => '/user/login',
     'controller' => 'someController',
     'action' => 'dologinAction',
     'methods' => 'POST'
+    ),
+
+    'val' => array(
+    'url' => '/val',
+    'controller' => 'PostController',
+    'action' => 'valAction',
+    'methods' => 'GET'
     ),
 
     'post' => array(
